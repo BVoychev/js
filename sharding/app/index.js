@@ -3,6 +3,9 @@ const { Client } = require("pg");
 const crypto = require("crypto");
 const HashRing = require("hashring");
 const hashRing = new HashRing();
+const os = require('os');
+
+const host = os.hostname();
 
 hashRing.add("5432")
 hashRing.add("5433")
@@ -10,21 +13,21 @@ hashRing.add("5434")
 
 const clients = {
   "5432" : new Client ({
-    "host": "Boriss-MacBook-Pro.local",
+    "host": host,
     "port": "5432",
     "user": "postgres",
     "password": "postgres",
     "database": "postgres",
   }),
   "5433" : new Client ({
-    "host": "Boriss-MacBook-Pro.local",
+    "host": host,
     "port": "5433",
     "user": "postgres",
     "password": "postgres",
     "database": "postgres",
   }),
   "5434" : new Client ({
-    "host": "Boriss-MacBook-Pro.local",
+    "host": host,
     "port": "5434",
     "user": "postgres",
     "password": "postgres",
