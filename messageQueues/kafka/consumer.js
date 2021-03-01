@@ -4,10 +4,10 @@ async function run(){
   try {
     const kafka = new Kafka({
       "clientId": "myapp",
-      "brokers": ["Boriss-MacBook-Pro.local:9092"],
+      "brokers": [`${host}:9092`],
     });
 
-    const consumer = kafka.consumer({"groupId": "test3"});
+    const consumer = kafka.consumer({"groupId": "test"});
     console.log("Connecting.....");
     await consumer.connect();
     console.log("Connected!");
